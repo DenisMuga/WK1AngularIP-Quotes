@@ -2,10 +2,10 @@
 
 <div>
     <hr>
-    <h1>Quotes</h1>
+    <h1 >Quotes</h1>
     <hr>
-    <ul>
-        <li *ngFor='let quote of quotes'>
+    <ul *ngFor='let quote of quotes' >
+        <li appHighlights>
         <span>{{quote.id}}</span>
           <span>{{quote.name}}</span>
           <span>{{quote.quote}}</span>
@@ -13,7 +13,6 @@
           <span>{{quote.datePosted}}</span>
           <span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span>
           <span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span>
-
         </li>
     </ul>
   </div>
