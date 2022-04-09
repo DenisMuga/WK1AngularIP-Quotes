@@ -5,7 +5,10 @@
     <h1 >Quotes</h1>
     <hr>
     <ul *ngFor='let quote of quotes' >
-        <li *ngIf = 'quote.id ==1'appHighlights>
+        <div *ngIf = 'quote.id ==1; then colorize else neutral'></div>
+        <ng-template #colorize>
+        <li appHighlights>
+            
         <!-- <span>{{quote.id}}</span> -->
           <span>{{quote.name}}</span>
           <span>{{quote.quote}}</span>
@@ -14,6 +17,20 @@
           <span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span>
           <span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span>
         </li>
+        </ng-template>
+        <ng-template #neutral>
+            <li>
+            
+                <!-- <span>{{quote.id}}</span> -->
+                  <span>{{quote.name}}</span>
+                  <span>{{quote.quote}}</span>
+                  <span>{{quote.author}}</span>
+                  <span>{{quote.datePosted}}</span>
+                  <span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span>
+                  <span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span>
+                </li>
+
+        </ng-template>
     </ul>
   </div>
   
