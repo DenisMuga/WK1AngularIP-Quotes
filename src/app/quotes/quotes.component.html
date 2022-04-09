@@ -5,8 +5,8 @@
     <h1 >Quotes</h1>
     <hr>
     <ul *ngFor='let quote of quotes' >
-        <li appHighlights>
-        <span>{{quote.id}}</span>
+        <li *ngIf = 'quote.id ==1'appHighlights>
+        <!-- <span>{{quote.id}}</span> -->
           <span>{{quote.name}}</span>
           <span>{{quote.quote}}</span>
           <span>{{quote.author}}</span>
