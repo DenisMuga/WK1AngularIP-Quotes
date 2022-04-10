@@ -7,12 +7,13 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { HighlightsDirective } from './highlights.directive';
 import { DatePipePipe } from './date-pipe.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     QuotesComponent,
     HighlightsDirective,
-    DatePipePipe
+    DatePipePipe,
   ],
   imports: [
     BrowserModule,

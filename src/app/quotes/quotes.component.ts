@@ -9,7 +9,7 @@ import { Quote } from '../quote';
 export class QuotesComponent implements OnInit {
   title = 'My Qoutes App';
   quotes:Quote [] = [
-    new Quote (1, ' Mike  ','Success and Failure', 'Success is not final; failure is not fatal: it is the courage to continue that counts.', 'Winston Churchill',  new Date(2022,4,9),0,0),
+    new Quote (1, ' Mike','Success and Failure', 'Success is not final; failure is not fatal: it is the courage to continue that counts.', 'Winston Churchill',  new Date(2022,4,9),0,0),
     new Quote (2, ' Gabriel', 'Rules and Regulations', 'Play by the rules, but be ferocious.', 'Phil Knight',  new Date(2022,4,10),0,0),
     new Quote (3, ' Ruth', 'Business and Opportunities', 'Business opportunities are like buses, there’s always another one coming.', 'Richard Branson',  new Date(2022,4,11),0,0),
     new Quote (4, 'Denis', 'Life and Opportunities', 'You only have to do a few things right in your life so long as you don’t do too many things wrong.', 'Warren Buffet',  new Date(2022,4,13),0,0),

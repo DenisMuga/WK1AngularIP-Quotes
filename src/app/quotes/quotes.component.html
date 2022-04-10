@@ -21,15 +21,26 @@
             <li>
                 <!-- <span>{{quote.id}}</span> -->
                   <span>{{quote.name}}</span>
+                  <span>{{quote.title}}</span>
                   <span>{{quote.quote}}</span>
                   <span>{{quote.author}}</span>
                   <span>{{quote.datePosted}}</span>
-                  <span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span>
-                  <span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span>
+                  <button><span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span></button>
+                  <button><span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span></button>
                 </li>
 
         </ng-template>
     </ul>
   </div>
+
+  <style>
+    button{
+      border-radius: 5px;
+      border: 2px solid green;
+      margin-left: 8px;
+      background-color: green;
+    }
+  </style>
+
   
   
