@@ -1,44 +1,55 @@
 
-
+<app-form (formEvent)="addQuote($event)" [quotesarray]="quotes"></app-form>
 <div>
     <hr>
     <h1 >Quotes</h1>
     <hr>
-    <ul *ngFor='let quote of quotes' >
-        <div *ngIf = 'quote.id ==1; then colorize else neutral'></div>
+    <div *ngFor="let quote of quotes; index as index;"  >
+      
+        <div *ngIf = 'quote.id ==2; then colorize else neutral' class="row"></div>
         <ng-template #colorize>
-        <li appHighlights> 
+        <div appHighlights class="p-5 w-50 mx-auto list-unstyled border border-primary rounded col-sm-12 col-md-6 col-lg-4"> 
         <!-- <span>{{quote.id}}</span> -->
-          <span>{{quote.name}}</span>
-          <span>{{quote.quote}}</span>
-          <span>{{quote.author}}</span>
-          <span>{{quote.datePosted}}</span>
-          <span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span>
-          <span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span>
-        </li>
+          <p> Posted by:<span class="text-warning">{{quote.name}}</span></p>
+            <p class="my-5 text-success fs-3"><i class="fa-solid fa-quote-left fs-3 text-success"></i><span>{{quote.quote}}</span><i class="fa-solid fa-quote-right fs-3 text-success"></i></p>
+            <p>Author:<span class="text-success">{{quote.author}}</span></p>
+            <p>Date Posted: <span class="text-danger">{{quote.datePosted|date}}</span></p>
+            <p>Time Elapsed: <span class="text-danger">{{quote.datePosted|datePipe}} Days Ago</span></p>
+            <span class="btn btn-sm btn-primary ms-3 "> <i class="fa-solid fa-thumbs-up fs-3"></i><span class="ms-2">{{quote.likes}}</span></span>
+            <span class="btn btn-sm btn-danger ms-3" (click)="upVotec(index)"> <i class="fa-solid fa-thumbs-down fs-3" (click)="downVotec(index)"></i>{{quote.dislikes}}</span>
+            <span class="btn btn-sm ms-3" (click)="deleteQuote(index)"><i class="fa-solid fa-trash-can fs-3 text-danger"></i></span>
+                  
+        </div>
         </ng-template>
-        <ng-template #neutral>
-            <li>
-                <!-- <span>{{quote.id}}</span> -->
-                  <span>{{quote.name}}</span>
-                  <span>{{quote.title}}</span>
-                  <span>{{quote.quote}}</span>
-                  <span>{{quote.author}}</span>
-                  <span>{{quote.datePosted}}</span>
-                  <button><span class="btn-primary ml-3"> Upvotes{{quote.likes}}</span></button>
-                  <button><span class="btn-danger ml-3">Downvotes{{quote.dislikes}}</span></button>
-                </li>
+        <ng-template #neutral >
+            <div class= "w-50 p-5 mt-2 mx-auto list-unstyled border border-primary rounded col-sm-12 col-md-6 col-lg-4 mt-2">
+                <span>{{quote.id}}</span>
+                  <p>Posted by:<span class="text-warning">{{quote.name}}</span></p>
+                  <span class="text-uppercase d-block text-success my-2">{{quote.title}}</span>
+                  <p class="my-5 text-info fs-3"><i class="fa-solid fa-quote-left fs-3 text-success"></i><span>{{quote.quote}}</span><i class="fa-solid fa-quote-right fs-3 text-success"></i></p>
+                  <p>Author:<span class="text-success">{{quote.author}}</span></p>
+                  <p>Date Posted: <span class="text-danger">{{quote.datePosted|date}}</span></p>
+                  <p>Time Elapsed: <span class="text-danger">{{quote.datePosted|datePipe}} Days Ago</span></p>
+                  <span class="btn btn-sm btn-primary ms-3 " (click)="upVote(index)"> <i class="fa-solid fa-thumbs-up fs-3"></i><span class="ms-2">{{quote.likes}}</span></span>
+                  <span class="btn btn-sm btn-danger ms-3" (click)="downVote(index)"> <i class="fa-solid fa-thumbs-down fs-3"></i>{{quote.dislikes}}</span>
+
+                  <span class="btn btn-sm ms-3" (click)="deleteQuote(index)"><i class="fa-solid fa-trash-can fs-3 text-danger"></i></span>
+                  
+            </div>
 
         </ng-template>
-    </ul>
+      </div>
   </div>
 
   <style>
     button{
       border-radius: 5px;
-      border: 2px solid green;
+      border: none;
       margin-left: 8px;
-      background-color: green;
+    }
+    h1{
+      color: green;
+      text-align: center;
     }
   </style>
 
